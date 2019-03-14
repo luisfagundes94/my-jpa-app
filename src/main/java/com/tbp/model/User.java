@@ -12,11 +12,24 @@ public class User {
        @Column(name = "name")
        String name;
 
-       @Column(name = "email")
+        @Column(name = "username", unique = true)
+        String username;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Column(name = "email")
        String email;
 
        @Column(name = "password")
        String password;
+
+
 
     public Long getId() {
         return id;

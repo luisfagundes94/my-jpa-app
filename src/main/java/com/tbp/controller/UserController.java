@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 @RestController
 public class UserController {
 
@@ -21,9 +23,12 @@ public class UserController {
 
     @RequestMapping(value = "/user/save", method = RequestMethod.GET)
     public User save(@RequestParam("name") String name, @RequestParam("email") String email,
-                     @RequestParam("password") String password) {
+                     @RequestParam("username") String username,
+                     @RequestParam("password") String password,
+                     Map<String, Object> model) {
         User user = new User();
         user.setName(name);
+        user.setUsername(username);
         user.setEmail(email);
         user.setPassword(password);
         userRepository.save(user);

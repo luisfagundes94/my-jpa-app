@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Map;
 
 @Controller
-@RequestMapping("login")
 public class LoginController {
 
     @Autowired
@@ -20,9 +19,29 @@ public class LoginController {
     @Autowired
     UserSession userSession;
 
-    @RequestMapping(value = "doLogin", method = RequestMethod.GET)
+    @RequestMapping(value = "user/login/doLogin", method = RequestMethod.GET)
     public String loginPage() {
-        return "login/doLogin";
+        return "user/login";
+    }
+
+    @RequestMapping(value = "/login/doLogin", method = RequestMethod.POST)
+    public String login(@RequestParam("name") String name,
+                            @RequestParam("password") String password,
+                            Map<String, Object> model) {
+        User user = userRepository.findByUsername(name);
+        if (user != null && user.getPassword().equals(password)) {
+            userSession.addLoggedUser(user);
+            return "redirect:/user/list";
+        } else {
+            model.put("message", "Login not valid");
+            return "user/login";
+        }
+    }
+
+    @RequestMapping(value = "doLogin", method = RequestMethod.GET)
+    public String logout() {
+        userSession.removeLoggedUser();
+        return "user/login";
     }
 
 

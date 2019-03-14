@@ -2,9 +2,7 @@
 
 <html>
   <meta charset="UTF-8">
-  <title>User Registration</title>
-
-  <link rel="stylesheet" href="../resources/static/css/register.css">
+  <title>User Sign In</title>
 
   <!--Importação de fontes-->
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -16,9 +14,10 @@
       <div class="form-container">
             <h1>Register User</h1>
             <form action="<%=request.getContextPath()%>/user/register" method="POST">
+            <input class="input-text" type="text" placeholder="Name" name="name">
             <input class="input-text" type="email" placeholder="Email" name="email">
             <input class="input-text" type="password" placeholder="Password" name="password">
-            <input class='btn' type="submit" value="submit">
+            <input class='btn' type="submit" value="login">
             </form>
       </div>
   </body>
