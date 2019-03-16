@@ -1,21 +1,45 @@
+
 <!DOCTYPE html>
-
 <html>
-  <meta charset="UTF-8">
-  <title>Página Principal</title>
+<body>
+<center>
+    <h1>
+        User List
+    </h1>
 
-  <!--Importação de fontes-->
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:700" rel="stylesheet">
 
-  <!--Importação de icones-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <body>
-      <div class="menu">
-            <h1>Lista</h1>
+    <table>
+      <c:forEach var="user" items="${userList}">
+       <tr>
+            <td>
 
-           </div>
-      </div>
-  </body>
+            </td>
+            <td>
 
+            </td>
+            <td>
+                ${user.id}
+            </td>
+            <td>
+                ${user.name}
+            </td>
+            <td>
+                ${user.age}
+            </td>
+            <td>
+
+            </td>
+        </tr>
+      </c:forEach>
+     </table>
+
+      <br><br>
+
+
+
+       <br><br>
+
+
+</center>
+</body>
 </html>

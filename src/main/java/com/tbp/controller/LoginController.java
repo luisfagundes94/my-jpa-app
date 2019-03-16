@@ -15,8 +15,10 @@ import java.util.Map;
 public class LoginController {
 
     @Autowired
+    private
     UserRepository userRepository;
     @Autowired
+    private
     UserSession userSession;
 
     @RequestMapping(value = "user/login/doLogin", method = RequestMethod.GET)
@@ -25,10 +27,10 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/login/doLogin", method = RequestMethod.POST)
-    public String login(@RequestParam("name") String name,
+    public String login(@RequestParam("email") String email,
                             @RequestParam("password") String password,
                             Map<String, Object> model) {
-        User user = userRepository.findByUsername(name);
+        User user = userRepository.findByEmail(email);
         if (user != null && user.getPassword().equals(password)) {
             userSession.addLoggedUser(user);
             return "redirect:/user/list";
