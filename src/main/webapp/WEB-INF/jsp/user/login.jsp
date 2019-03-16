@@ -15,10 +15,13 @@
   <body>
       <div class="form-container">
             <h1>User Login</h1>
-            <form action="<%=request.getContextPath()%>/user/login/doLogin" method="POST">
+            <form action="<%=request.getContextPath()%>/user/login/doLogin" method="POST" accept-charset="UTF-8">
             <input class="input-text" type="email" placeholder="Email" name="email">
             <input class="input-text" type="password" placeholder="Password" name="password">
             <input class='btn' type="submit" value="login">
+            <div class='error-msg'>
+            ${message}
+            </div>
             </form>
       </div>
   </body>

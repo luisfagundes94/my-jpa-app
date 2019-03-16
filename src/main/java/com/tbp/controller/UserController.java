@@ -16,13 +16,20 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
+    @RequestMapping(value = "user/success", method = RequestMethod.GET)
+    public String successPage(Map<String, Object> model) {
+        model.put("username", "balbalbla");
+        model.put("email", "balbalbla@gmail.com");
+        return "user/success";
+    }
+
     @RequestMapping(value = "user/register", method = RequestMethod.GET)
     public String registerPage() {
         return "user/register";
     }
 
     @RequestMapping(value = "/user/register", method = RequestMethod.POST)
-    public User register(@RequestParam("name") String name, @RequestParam("email") String email,
+    public String register(@RequestParam("name") String name, @RequestParam("email") String email,
                          @RequestParam("password") String password,
                          Map<String, Object> model) {
         User user = new User();
@@ -30,8 +37,7 @@ public class UserController {
         user.setEmail(email);
         user.setPassword(password);
         userRepository.save(user);
-        System.out.println("deu certo!");
-        return user;
+        return "redirect:/user/success";
     }
 
     @RequestMapping(value = "/user/update", method = RequestMethod.POST)
@@ -45,7 +51,7 @@ public class UserController {
         return user;
     }
 
-    @RequestMapping(value = "user/list", method = RequestMethod.GET)
+    @RequestMapping(value = "/user/list", method = RequestMethod.GET)
     public String listPage(Map<String, Object> model) {
         Iterable<User> userList = userRepository.findAll();
         model.put("userList", userList);

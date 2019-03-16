@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("../../images/banner.jpg");
+    background-size: auto;
+
+}
+
+h1 {
+    color: blueviolet;
+    font-family: 'Roboto', sans-serif;
+    text-transform: capitalize;
+    font-size: 4em;
+}
+
+table {
+   background-color: #2d2e45;
+   border-spacing: 1.5em;
+}
+
+table th {
+   font-family: 'Roboto', sans-serif;
+   font-weight: "700";
+   color: white;
+   font-size: 3em;
+   margin: 1.5em;
+}
+
+table td {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-size: 3em;
+    margin: 1.5em;
+}
