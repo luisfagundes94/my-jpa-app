@@ -20,6 +20,7 @@
             <input class="input-text" type="email" placeholder="Email" name="email">
             <input class="input-text" type="password" placeholder="Password" name="password">
             <input class='btn' type="submit" value="submit">
+            <p>${errorMsg}</p>
             </form>
       </div>
   </body>

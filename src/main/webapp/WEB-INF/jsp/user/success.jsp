@@ -13,8 +13,8 @@
         Cadastro feito com sucesso!
     </h1>
 
-    <p>${username}</p>
-    <p>${email}</p>
+    <p>${registeredName}</p>
+    <p>${registeredEmail}</p>
 
     <br>
     <a href="<%=request.getContextPath()%>/user/login/doLogin">Login</a>
